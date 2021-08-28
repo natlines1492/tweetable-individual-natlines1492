@@ -1,0 +1,31 @@
+<div class="home-header">
+  <header class="header">
+    <h2 class="">Edit tweet</h2>
+  </header>
+</div>
+<div>
+  <%= form_with model: [@user, @tweet] do |form| %>
+    <% if @tweet.errors.any? %>
+      <div id='error_explanation'>
+        <h2>
+          Something went wrong:
+        </h2>
+        <ul>
+          <% @tweet.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+      <div>
+        <div>
+          <%= form.label :body, placeholder: 'What’s happening?' %>
+          <%= form.text_area :body, class: 'edit_area'%>
+        </div>
+        <div>
+          <%= link_to 'Cancel', :back %>
+          <%= form.submit 'Tweet'%>
+        </div>
+      </div>
+  <% end %>
+</div>
