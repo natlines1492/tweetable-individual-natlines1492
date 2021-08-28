@@ -23,7 +23,7 @@
           <%= time_ago_in_words(tweet.created_at)%>
         </div>
       </div>
-      <div>
+      <div class="mb-16-left">
         <%= tweet.body %>
       </div>
     </div>
@@ -32,8 +32,8 @@
     <div class="navbar__left">
     <%= link_to tweet, class: "flex gap-12" do %>
         <%= image_tag('Iconmessage.svg',  alt:'comments') %>
-        <span ><%= tweet.comments_count %></span>
     <% end %>
+        <p class="content--sm"><%= tweet.comments_count %></p>
     </div>
     <% if current_user == tweet.user %>
     <div class="navbar__right align-center">

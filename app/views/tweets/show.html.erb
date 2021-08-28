@@ -1,35 +1,37 @@
-<header class="header border">
-  <h1 class="title">Tuit Detail</h1>
-</header>
-<div class="content--sm">
-  <div>
+<h2 class='section--xs'>Tuit Detail</h2>
+<hr>
+<div class="flex gap-16 content--sm">
+  <div class="img-tweet">
     <%= @tweet.user.avatar.attached? ? image_tag(@tweet.user.avatar) : image_tag("Imageanomymus.png") %>
   </div>
   <div>
-    <%= @tweet.user.name %>
-  </div>
-  <div class="content--sm">
-    <%= "@" + @tweet.user.username %>
-  </div>
-  <div>
-    <%= time_ago_in_words(@tweet.created_at)%>
-  </div>
-  <div>
-    <%= @tweet.body %>
-  </div>
-  <div class="flex flex--wrap flex--space margin-top">
-    <%= link_to @tweet, class: "" do %>
-      <div class="">
-        <%= image_tag("Iconmessage.svg",  alt:"comments") %>
-        <span>&nbsp<%= @tweet.comments_count %></span>
+    <div class="flex gap-16">
+      <div class="font-bold">
+        <%= @tweet.user.name %>
       </div>
-    <% end %>
-    <% if current_user == @tweet.user %>
-    <div>
-      <%= link_to  image_tag("Icontrash.svg",  alt:"trash"), tweet_path(@tweet), method: :delete, data: { confirm: "Are you sure?" }  %>
-      <%= link_to  image_tag("Iconpencil.svg",  alt:"edit"), edit_tweet_path(@tweet)  %>
+      <div class="gray-300">
+        <%= "@" + @tweet.user.username %>
+        <%= time_ago_in_words(@tweet.created_at)%>
+      </div>
     </div>
+    <div class="mb-16-left">
+      <%= @tweet.body %>
+    </div>
+  </div>
+</div>
+<div class="navbar">
+  <div class="navbar__left">
+    <%= link_to @tweet, class: "flex gap-12" do %>
+      <%= image_tag("Iconmessage.svg",  alt:"comments") %>
     <% end %>
+      <p class="content--sm"><%= @tweet.comments_count %></p>
+  </div>
+  <% if current_user == @tweet.user %>
+  <div class="navbar__right align-center">
+    <%= link_to  image_tag("Icontrash.svg",  alt:"trash"), tweet_path(@tweet), method: :delete, data: { confirm: "Are you sure?" }  %>
+    <%= link_to  image_tag("Iconpencil.svg",  alt:"edit"), edit_tweet_path(@tweet)  %>
+  </div>
+  <% end %>
 </div>
 
 <hr>
@@ -39,19 +41,24 @@
 
 <!--replies list-->
   <% @tweet.comments.each do |comment| %>
-    <div>
-       <%= comment.user.avatar.attached? ? image_tag(comment.user.avatar) : image_tag("Imageanonymus.svg") %>
-    </div>
-    <div>
-      <%= comment.user.name %>
-    </div>
-    <div>
-      <%= "@" + @tweet.user.username %>
-    </div>
-    <div>
-      <%= time_ago_in_words(comment.created_at) + " ago"%>
-    </div>
-    <div>
-      <%= comment.body %>
+    <br>
+    <div class="flex gap-16 content--sm">
+      <div class="img-tweet">
+        <%= comment.user.avatar.attached? ? image_tag(comment.user.avatar) : image_tag("Imageanonymus.svg") %>
+      </div>
+      <div>
+        <div class="flex gap-16">
+          <div class="font-bold">
+            <%= comment.user.name %>
+        </div>
+        <div class="gray-300">
+          <%= "@" + @tweet.user.username %>
+          <%= time_ago_in_words(comment.created_at) + " ago"%>
+        </div>
+      </div>
+      <div class="mb-16-left">
+        <%= tweet.body %>
+      </div>
     </div>
   <% end %>
+  </div>

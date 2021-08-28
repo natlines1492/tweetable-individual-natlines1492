@@ -1,14 +1,9 @@
-<div class="form-devise flex flex--column flex--vertical--align">
+
 <%= form_with model: tweet do |form| %>
-
-    <div class="field">
-      <%= form.label :body %><br />
-      <%= form.text_area :body, placeholder: "Remember to thing before write..."%>
+  <div class="input__container flex-col bg-white">
+    <%= form.text_area :body, placeholder: "Remember to thing before write...", class:'input__content'%>
+    <div class="cta__button-input">
+      <%= form.submit "Edit", class: "btn btn--small" %>
     </div>
-
-    <div>
-      <%= form.submit "edit", class: "button" %>
-    </div>
-
+  </div>
 <% end %>
-</div>

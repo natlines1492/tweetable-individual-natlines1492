@@ -28,6 +28,13 @@
   margin-left: 40%;
 }
 
+.cta__button-group-column {
+  gap: 24px;
+  margin-top: 8px;
+  margin-bottom: 12px;
+  margin-left: 45%;
+}
+
 .cta__button-input {
   display: flex;
   gap: 24px;
