@@ -1,0 +1,52 @@
+<h2 class='section--xs'>Home</h2>
+<%= form_with model: [@user, Tweet.new] do |form| %>
+  <div class='input__container flex-col bg-white'>
+    <%= form.text_area :body, placeholder: 'Remember to think before you write' , class:'input__content' %>
+    <div class="cta__button-input">
+      <%= form.submit 'Tweet', class: "btn btn--small" %>
+    </div>
+  </div>
+<% end %>
+<% @tweets.reverse.each do |tweet| %>
+  <br>
+  <div class="flex gap-16 content--sm">
+    <div class="img-tweet">
+      <%= tweet.user.avatar.attached? ? image_tag(tweet.user.avatar) : image_tag('Imageanomymus.png') %>
+    </div>
+    <div>
+      <div class="flex gap-16">
+        <div class="font-bold">
+          <%= tweet.user.name %>
+        </div>
+        <div class="gray-300">
+          <%= '@' + tweet.user.username %>
+          <%= time_ago_in_words(tweet.created_at)%>
+        </div>
+      </div>
+      <div class="mb-16-left">
+        <%= tweet.body %>
+      </div>
+    </div>
+  </div>
+  <div class="navbar">
+    <div class="navbar__left">
+    <%= link_to tweet, class: "flex gap-12" do %>
+        <%= image_tag('Iconmessage.svg',  alt:'comments') %>
+    <% end %>
+        <p class="content--sm"><%= tweet.comments_count %></p>
+    </div>
+    <% if current_user == tweet.user %>
+    <div class="navbar__right align-center">
+      <%= link_to  image_tag('Icontrash.svg',  alt:'trash'), tweet_path(tweet), method: :delete, data: { confirm: 'Are you sure?' }  %>
+      <%= link_to  image_tag('Iconpencil.svg',  alt:'edit'), edit_tweet_path(tweet), method: :get  %>
+    </div>
+    <% end %>
+    </div>
+  <hr>
+  <% end %>
+
+
+
+
+
+

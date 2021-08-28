@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+:root {
+  --primary-font: 'Roboto', sans-serif;
+  --secondary-font: 'Roboto', sans-serif;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  color: var(--gray-400);
+  line-height: 1.5;
+}
+
+.heading,
+.heading--md {
+  font-family: var(--secondary-font);
+  font-size: 30px;
+  line-height: 36px;
+  font-weight: 600;
+  color: var(--gray-500);
+}
+
+.heading--xxl {
+  font-size: 60px;
+  line-height: 60px;
+}
+.heading--xl {
+  font-size: 48px;
+  line-height: 48px;
+}
+.heading--lg {
+  font-size: 36px;
+  line-height: 40px;
+}
+
+.heading--sm {
+  font-size: 24px;
+  line-height: 32px;
+}
+.heading--xs {
+  font-size: 20px;
+  line-height: 28px;
+}
+
+.content--xl {
+  font-size: 20px;
+  line-height: 28px;
+}
+.content--lg {
+  font-size: 18px;
+  line-height: 28px;
+}
+.content--sm {
+  font-size: 16px;
+  line-height: 24px;
+  text-decoration-line: none;
+}
+.content--xs {
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.overline {
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.font-bold {
+  font-weight: bold;
+}
+
+@media (max-width: 480px) {
+  .sm\:heading--xl {
+    font-size: 48px;
+    line-height: 48px;
+  }
+  /*.heading--lg {
+    font-size: 36px;
+    line-height: 40px;
+  }
+
+  .heading--sm {
+    font-size: 24px;
+    line-height: 32px;
+  }
+  .heading--xs {
+    font-size: 20px;
+    line-height: 28px;
+  } */
+}

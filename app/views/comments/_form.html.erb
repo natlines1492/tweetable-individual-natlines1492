@@ -1,0 +1,14 @@
+<div class="form-devise flex flex--column flex--vertical--align">
+  <%= form_with model: [@tweet, comment], local: true do |form| %>
+
+      <div class="field">
+        <%= form.label :body %><br />
+        <%= form.text_area :body, placeholder: "Remember to think before write..."%>
+      </div>
+
+      <div>
+        <%= form.submit "edit", class: "button" %>
+      </div>
+
+  <% end %>
+</div>
