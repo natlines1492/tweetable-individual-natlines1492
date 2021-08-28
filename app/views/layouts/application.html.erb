@@ -10,8 +10,18 @@
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <%= yield %>
+    <section class="container">
+        <div class="cta__button-group">
+          <% if user_signed_in? %>
+            <%= link_to "Edit Profile", edit_user_registration_path, class: "btn btn--small2" %>
+            <%= link_to "Log Out", destroy_user_session_path, method: :delete, class: "btn btn--small" %>
+          <% else %>
+            <%= link_to "Login", new_user_session_path %>
+          <% end %>
+        </div>
+      <div class="bg-white">
+        <%= yield %>
+      </div>
+    </section>
   </body>
 </html>

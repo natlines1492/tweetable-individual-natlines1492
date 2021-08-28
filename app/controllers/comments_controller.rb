@@ -6,8 +6,11 @@ class CommentsController < ApplicationController
     @comment = Comment.new(comments_params)
     @comment.tweet = @tweet
     @comment.user = current_user
-    @comment.save
-    redirect_to @tweet
+    if @comment.save
+      redirect_to @tweet, notice: 'Comment was successfully created.'
+    else
+      redirect_to @tweet, alert: 'Something failed'
+    end
   end
 
   def update

@@ -1,11 +1,14 @@
-<div>
+<header class="header border">
+  <h1 class="title">Tuit Detail</h1>
+</header>
+<div class="content--sm">
   <div>
     <%= @tweet.user.avatar.attached? ? image_tag(@tweet.user.avatar) : image_tag("Imageanomymus.png") %>
   </div>
   <div>
     <%= @tweet.user.name %>
   </div>
-  <div>
+  <div class="content--sm">
     <%= "@" + @tweet.user.username %>
   </div>
   <div>
@@ -32,12 +35,12 @@
 <hr>
     
 <!--reply form-->
-<%= render "tweet/form", comment: @comment%>
+<%= render "form_new_comment", comment: @comment%>
 
 <!--replies list-->
   <% @tweet.comments.each do |comment| %>
     <div>
-      <%= image_tag(tweet.user.avatar) %>
+       <%= comment.user.avatar.attached? ? image_tag(comment.user.avatar) : image_tag("Imageanonymus.svg") %>
     </div>
     <div>
       <%= comment.user.name %>
@@ -50,8 +53,5 @@
     </div>
     <div>
       <%= comment.body %>
-    </div>
-    <div>
-      <%= tweet.comments_count %>
     </div>
   <% end %>
