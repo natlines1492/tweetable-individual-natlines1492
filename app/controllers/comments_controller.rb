@@ -1,6 +1,11 @@
 class CommentsController < ApplicationController
   before_action :authenticate_user!, only: %i[create update destroy]
 
+  def new
+    @tweet = Tweet.find(params[:id])
+    @comment = Comment.new
+  end
+  
   def create
     @tweet = Tweet.find(params[:id])
     @comment = Comment.new(comments_params)

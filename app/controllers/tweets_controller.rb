@@ -6,6 +6,10 @@ class TweetsController < ApplicationController
     @tweets = Tweet.all
   end
 
+  def new
+    @tweet = Tweet.new
+  end
+
   def create
     @tweet = Tweet.new(tweet_params)
     @tweet.user = current_user
@@ -16,20 +20,19 @@ class TweetsController < ApplicationController
     end
   end
 
+  def edit
+    @tweet = Tweet.find(params[:id])
+  end
+
   def update
-    if @tweet.update(tweet_params)
-      redirect_to @tweet, notice: 'Tweet was successfully updated.'
-    else
-      render :edit
-    end
+    @tweet = Tweet.find(params[:id])
+    @tweet.user = current_user
+    @tweet.update(tweet_params)
+    redirect_to root_path
   end
 
   def show
     @comment = Comment.new
-  end
-
-  def new
-    @tweet = Tweet.new
   end
 
   def destroy
