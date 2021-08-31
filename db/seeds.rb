@@ -8,6 +8,7 @@
 
 User.destroy_all
 Tweet.destroy_all
+Comment.destroy_all
 
 puts "Seeding users"
 user = User.create(username: "admin", name: "admin", email: "admin@test.com", password: "123456")
@@ -32,8 +33,9 @@ tweet= Tweet.create(body:"Lorem Ipsum is simply dummy text of the printing and t
 tweet= Tweet.create(body:"Lorem Ipsum is simply dummy text of the printing and typesetting industry.", user_id:3 )
 tweet= Tweet.create(body:"Lorem Ipsum is simply dummy text of the printing and typesetting industry.", user_id:4 )
 
-# puts "Seeding comments"
-# reply = Tweet.create(body:"Lorem Ipsum is simply dummy text of the printing and typesetting industry.", user_id:2, replied_to_id:1 )
-# reply = Tweet.create(body:"Lorem Ipsum is simply dummy text of the printing and typesetting industry.", user_id:3, replied_to_id:1 )
-# reply = Tweet.create(body:"Lorem Ipsum is simply dummy text of the printing and typesetting industry.", user_id:4, replied_to_id:2 )
-# reply = Tweet.create(body:"Lorem Ipsum is simply dummy text of the printing and typesetting industry.", user_id:4, replied_to_id:3 )
+puts "Seeding comments"
+comment = Comment.create(body:"Lorem Ipsum is simply dummy text of the printing and typesetting industry.", user_id:2, tweet_id:1 )
+comment = Comment.create(body:"Lorem Ipsum is simply dummy text of the printing and typesetting industry.", user_id:3, tweet_id:1 )
+comment = Comment.create(body:"Lorem Ipsum is simply dummy text of the printing and typesetting industry.", user_id:4, tweet_id:2 )
+comment = Comment.create(body:"Lorem Ipsum is simply dummy text of the printing and typesetting industry.", user_id:2, tweet_id:1 )
+comment = Comment.create(body:"Lorem Ipsum is simply dummy text of the printing and typesetting industry.", user_id:1, tweet_id:3 )
