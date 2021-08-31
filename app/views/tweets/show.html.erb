@@ -52,7 +52,7 @@
             <%= comment.user.name %>
           </div>
           <div class="gray-300">
-            <%= "@" + @tweet.user.username %>
+            <%= "@" + comment.user.username %>
             <%= time_ago_in_words(comment.created_at) + " ago"%>
           </div>
         </div>
