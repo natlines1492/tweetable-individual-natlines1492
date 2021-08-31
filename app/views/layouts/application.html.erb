@@ -10,13 +10,21 @@
   </head>
 
   <body>
+    <% flash.each do |type, message|%>
+        <div class="flex gap-16 flash-card" id="div-to-remove">
+          <div class="text-left">
+            <p class="heading heading--xs"><%=type.to_s.capitalize%></p>
+            <p class="content--lg"><%=message%></p>
+          </div>
+        </div>
+      <% end %>
     <section class="container">
         <div class="cta__button-group">
           <% if user_signed_in? %>
             <%= link_to "Edit Profile", edit_user_registration_path, class: "btn btn--small2" %>
             <%= link_to "Log Out", destroy_user_session_path, method: :delete, class: "btn btn--small" %>
           <% else %>
-            <%= link_to "Login", new_user_session_path %>
+            <%= link_to "Login", new_user_session_path, class: "btn btn--small" %>
           <% end %>
         </div>
       <div class="bg-white">

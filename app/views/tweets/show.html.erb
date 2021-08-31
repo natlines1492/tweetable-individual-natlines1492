@@ -37,11 +37,11 @@
 <hr>
     
 <!--reply form-->
-<%= render "form_new_comment", comment: @comment%>
+<%= render "comments/form", comment: @comment%>
 
 <!--replies list-->
   <% @tweet.comments.each do |comment| %>
-    <br>
+    <hr>
     <div class="flex gap-16 content--sm">
       <div class="img-tweet">
         <%= comment.user.avatar.attached? ? image_tag(comment.user.avatar) : image_tag("Imageanonymus.svg") %>
@@ -50,15 +50,21 @@
         <div class="flex gap-16">
           <div class="font-bold">
             <%= comment.user.name %>
-        </div>
+          </div>
         <div class="gray-300">
           <%= "@" + @tweet.user.username %>
           <%= time_ago_in_words(comment.created_at) + " ago"%>
         </div>
       </div>
       <div class="mb-16-left">
-        <%= tweet.body %>
+        <%= @tweet.body %>
       </div>
+      <% if current_user == @tweet.user %>
+        <div class="navbar__right align-center">
+          <%= link_to  image_tag("Icontrash.svg",  alt:"trash"), tweet_comment_path(comment), method: :delete, data: { confirm: "Are you sure?" }  %>
+          <%= link_to  image_tag("Iconpencil.svg",  alt:"edit"), edit_tweet_comment_path(comment)  %>
+        </div>
+      <% end %>
     </div>
-  <% end %>
   </div>
+  <% end %>
