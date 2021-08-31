@@ -64,8 +64,8 @@
     <div class="navbar__right btn-holder">
       <% if current_user == comment.user %>
         <div class="navbar__right">
-          <%= link_to  image_tag("Icontrash.svg",  alt:"trash"), tweet_comment_path(comment), method: :delete, data: { confirm: "Are you sure?" }  %>
-          <%= link_to  image_tag("Iconpencil.svg",  alt:"edit"), edit_tweet_comment_path(comment)  %>
+          <%= link_to  image_tag("Icontrash.svg",  alt:"trash"), tweet_comment_path(@tweet,comment), method: :delete, data: { confirm: "Are you sure?" }  %>
+          <%= link_to  image_tag("Iconpencil.svg",  alt:"edit"), edit_tweet_comment_path(@tweet,comment)  %>
         </div>
       <% end %>
     </div>

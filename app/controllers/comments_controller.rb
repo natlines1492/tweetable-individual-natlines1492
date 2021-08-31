@@ -18,10 +18,15 @@ class CommentsController < ApplicationController
     end
   end
 
-  def edit; end
+  def edit
+    @tweet = Tweet.find(params[:tweet_id])
+    @comment = Comment.find(params[:id])
+  end
 
   def update
-    if @comment.updated(comments_params)
+    @tweet = Tweet.find(params[:tweet_id])
+    @comment = Comment.find(params[:id])
+    if @comment.update(comments_params)
       redirect_to @comment.tweet
     else
       render :edit
@@ -29,6 +34,8 @@ class CommentsController < ApplicationController
   end
 
   def destroy
+    @tweet = Tweet.find(params[:tweet_id])
+    @comment = Comment.find(params[:id])
     @comment.destroy
     redirect_to @tweet, notice: 'Comment deleted!'
   end
