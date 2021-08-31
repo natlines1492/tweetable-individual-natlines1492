@@ -40,7 +40,7 @@
 <%= render "comments/form", comment: @comment%>
 
 <!--replies list-->
-  <% @tweet.comments.each do |comment| %>
+  <% @tweet.comments.reverse.each do |comment| %>
     <hr>
     <div class="flex gap-16 content--sm">
       <div class="img-tweet">
@@ -51,20 +51,22 @@
           <div class="font-bold">
             <%= comment.user.name %>
           </div>
-        <div class="gray-300">
-          <%= "@" + @tweet.user.username %>
-          <%= time_ago_in_words(comment.created_at) + " ago"%>
+          <div class="gray-300">
+            <%= "@" + @tweet.user.username %>
+            <%= time_ago_in_words(comment.created_at) + " ago"%>
+          </div>
+        </div>
+        <div class="mb-16-left">
+          <%= comment.body %>
         </div>
       </div>
-      <div class="mb-16-left">
-        <%= @tweet.body %>
-      </div>
-      <% if current_user == @tweet.user %>
-        <div class="navbar__right align-center">
+    </div>
+    <div class="navbar__right btn-holder">
+      <% if current_user == comment.user %>
+        <div class="navbar__right">
           <%= link_to  image_tag("Icontrash.svg",  alt:"trash"), tweet_comment_path(comment), method: :delete, data: { confirm: "Are you sure?" }  %>
           <%= link_to  image_tag("Iconpencil.svg",  alt:"edit"), edit_tweet_comment_path(comment)  %>
         </div>
       <% end %>
     </div>
-  </div>
   <% end %>

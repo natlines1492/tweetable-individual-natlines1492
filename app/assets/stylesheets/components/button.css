@@ -37,3 +37,8 @@
   color: #1DA1F2;
   border-radius: 100px;
 }
+
+.btn-holder {
+  justify-content: flex-end;
+  display: flex;
+}
