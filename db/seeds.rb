@@ -11,7 +11,7 @@ Tweet.destroy_all
 Comment.destroy_all
 
 puts "Seeding users"
-user = User.create(username: "admin", name: "admin", email: "admin@test.com", password: "123456")
+user = User.create(username: "admin", name: "admin", email: "admin@test.com", password: "123456", role: 1)
 user.avatar.attach(io: File.open('app/assets/images/Imageanonymus.png'), filename: 'Imageanonymus.png')
 user.save
 user = User.create(username: "Diego", name: "rodrigo", email: "rodrigo@test.com", password: "123456")
