@@ -1,7 +1,7 @@
 class TweetsController < ApplicationController
   before_action :set_tweet, only: %i[show update destroy]
   before_action :authenticate_user!, only: %i[new create update destroy]
-  before_action :own_tweet, only: %i[update destroy]
+  #before_action :own_tweet, only: %i[update destroy]
   def index
     @tweets = Tweet.all
   end
@@ -14,6 +14,7 @@ class TweetsController < ApplicationController
     @tweet = Tweet.new(tweet_params)
     @tweet.user = current_user
     if @tweet.save
+      authorize @tweet
       redirect_to :root, notice: 'Tweet was successfully created.'
     else
       render :new
@@ -22,12 +23,14 @@ class TweetsController < ApplicationController
 
   def edit
     @tweet = Tweet.find(params[:id])
+    authorize @tweet
   end
 
   def update
     @tweet = Tweet.find(params[:id])
-    @tweet.user = current_user
+    current_user[:role] == "admin" ? @tweet.user : @tweet.user = current_user
     @tweet.update(tweet_params)
+    authorize @tweet
     redirect_to root_path
   end
 
@@ -37,6 +40,7 @@ class TweetsController < ApplicationController
 
   def destroy
     @tweet.destroy
+    authorize @tweet
     redirect_to :root, notice: 'Tweet was successfully destroyed.'
   end
 
@@ -48,11 +52,5 @@ class TweetsController < ApplicationController
 
   def tweet_params
     params.require(:tweet).permit(:body)
-  end
-
-  def own_tweet
-    return if current_user == @tweet.user
-
-    redirect_to(@tweet, notice: 'You cannot modify this tweet')
   end
 end
