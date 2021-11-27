@@ -2,30 +2,11 @@
   text-align: center;
 }
 
-.cta__title {
-  margin-bottom: 24px;
-}
-
-.cta__title--overline {
-  font-size: 16px;
-  line-height: 24px;
-  font-weight: 500;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  margin-bottom: 12px;
-}
-
-.cta__text {
-  max-width: 768px;
-  margin: auto;
-  margin-bottom: 16px;
-}
-
 .cta__button-group {
   display: flex;
   gap: 24px;
   margin-bottom: 12px;
-  margin-left: 40%;
+  margin-left: 70%;
 }
 
 .cta__button-group-column {
@@ -40,24 +21,6 @@
   gap: 24px;
   margin-bottom: 12px;
   margin-left: 60%;
-}
-
-.cta--pop-in .cta__button-group {
-  animation: fade-in 1s backwards;
-  animation-delay: 1.5s;
-}
-
-.cta--small.cta--pop-in .cta__button-group {
-  animation-delay: 1s;
-}
-
-.cta--pop-in .cta__title {
-  animation: pop-in 1s;
-}
-
-.cta--pop-in .cta__text {
-  animation: pop-in 1s backwards;
-  animation-delay: 500ms;
 }
 
 .flash-card {

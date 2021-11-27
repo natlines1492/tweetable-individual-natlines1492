@@ -1,6 +1,6 @@
 <h2 class='section--xs'>Home</h2>
 <%= form_with model: [@user, Tweet.new] do |form| %>
-  <div class='input__container flex-col bg-white'>
+  <div class='input__container flex-col'>
     <%= form.text_area :body, placeholder: 'Remember to think before you write' , class:'input__content' %>
     <div class="cta__button-input">
       <%= form.submit 'Tweet', class: "btn btn--small" %>
@@ -32,8 +32,9 @@
     <div class="navbar__left">
     <%= link_to tweet, class: "flex gap-12" do%>
         <%= image_tag('Iconmessage.svg',  alt:'comments') %>
+        <p class="content--sub"><%= "#{tweet.comments_count} comment(s)"%></p>
     <% end %>
-        <p class="content--sm"><%= tweet.comments_count %></p>
+        
     </div>
     <% if current_user == tweet.user %>
     <div class="navbar__right align-center">

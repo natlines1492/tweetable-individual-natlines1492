@@ -1,5 +1,13 @@
 # Tweetable Individual
 
+To start. at first you should run:
+
+sudo docker-compose up
+
+sudo docker-compose exec client bash
+
+rails s -b 0.0.0.0
+
 ## Before getting started
 
 1. Clone this repo and get into it.

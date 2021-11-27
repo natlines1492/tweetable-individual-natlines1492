@@ -55,14 +55,12 @@ body {
   line-height: 24px;
   text-decoration-line: none;
 }
-.content--xs {
-  font-size: 12px;
-  line-height: 16px;
-}
 
-.overline {
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
+.content--sub {
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--gray-300);
+  text-decoration: none;
 }
 
 .font-bold {
@@ -74,17 +72,4 @@ body {
     font-size: 48px;
     line-height: 48px;
   }
-  /*.heading--lg {
-    font-size: 36px;
-    line-height: 40px;
-  }
-
-  .heading--sm {
-    font-size: 24px;
-    line-height: 32px;
-  }
-  .heading--xs {
-    font-size: 20px;
-    line-height: 28px;
-  } */
 }

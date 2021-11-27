@@ -8,11 +8,12 @@
   line-height: 20px;
   font-weight: 500;
   padding: 8px 16px;
-  background-color: #1DA1F2;
+  background-color: var(--cyan);
   border: none;
   border-radius: 4px;
   width: 83px;
   height: 40px;
+  cursor: pointer;
 }
 
 
@@ -21,8 +22,8 @@
   line-height: 16px;
   padding: 6px 10px;
   text-decoration: none;
-  background: #1DA1F2;
-  color: white;
+  background: var(--cyan);
+  color: var(--white);
   border-radius: 100px;
 }
 
@@ -30,12 +31,12 @@
   font-size: 14px;
   line-height: 16px;
   padding: 6px 10px;
-  width: 90px;
   text-decoration: none;
-  background-color: #F7F9FA;
-  border-color:#1DA1F2;
-  color: #1DA1F2;
+  background-color: var(--white);
+  border: var(--cyan) 1px solid;
+  color: var(--cyan);
   border-radius: 100px;
+  text-align: center;
 }
 
 .btn-holder {
