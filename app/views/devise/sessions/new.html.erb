@@ -23,8 +23,11 @@
       <% end %>
 
       <div class="cta__button-group-column">
-        <%= f.submit "Submit" , class: "btn btn--small"%>
-        <br>
+        <%= f.submit "Login now!" , class: "btn btn--small"%>
+      </div>
+      <br>
+        <p>Are you new? Register now!</p>
+      <div class="cta__button-group-column">
         <%= link_to "Sign up", new_registration_path(resource_name), class: "btn btn--small2 align-center" %>
       </div>
     <% end %>

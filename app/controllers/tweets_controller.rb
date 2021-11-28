@@ -2,6 +2,7 @@ class TweetsController < ApplicationController
   before_action :set_tweet, only: %i[show update destroy]
   before_action :authenticate_user!, only: %i[new create update destroy]
   before_action :own_tweet, only: %i[update destroy]
+  
   def index
     @tweets = Tweet.all
   end

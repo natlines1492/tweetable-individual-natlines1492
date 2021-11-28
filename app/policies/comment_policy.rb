@@ -24,6 +24,6 @@ class CommentPolicy < ApplicationPolicy
   end
 
   def admin?
-    @user.role == "admin"
+    @user.role == 'admin'
   end
 end
