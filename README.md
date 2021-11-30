@@ -2,6 +2,8 @@
 
 This repo contains an MVP about a simpler and modified version of Twitter in Ruby on Rails.
 
+You can see it in : https://tweetable-natlines1492.herokuapp.com
+
 ## Before getting started
 
 1. Clone this repo and get into it.
